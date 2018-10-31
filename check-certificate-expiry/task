@@ -1,0 +1,7 @@
+#!/bin/bash -xeu
+
+pushd bbl-state/bbl-state
+    eval "$(bbl print-env)"
+popd
+
+go run cf-deployment-concourse-tasks/check-certificate-expiry/main.go

@@ -1,0 +1,33 @@
+#!/bin/bash
+set -exu
+
+# shellcheck disable=SC1091
+source cf-deployment-concourse-tasks/shared-functions
+
+function bosh_delete_all_deployments() {
+  local force_flag=""
+
+  if [ "$IGNORE_ERRORS" = true ]; then
+    force_flag="--force"
+  fi
+
+  local deployments
+  deployments=$(bosh deployments --json | jq -r '.Tables[].Rows[].name')
+
+  for deployment in ${deployments}; do
+    if [ ! -z "${deployment}" ]; then
+      echo "Deleting deployment: ${deployment}"
+      bosh \
+        -n \
+        delete-deployment -d "${deployment}" \
+      ${force_flag}
+    fi
+  done
+}
+
+function main() {
+  setup_bosh_env_vars
+  bosh_delete_all_deployments
+}
+
+main

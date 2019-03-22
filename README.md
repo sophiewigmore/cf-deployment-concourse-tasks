@@ -87,6 +87,9 @@ running out of space.
 ### [bosh-delete-deployment][bosh-delete-deployment-task-yaml]
 This deletes a BOSH deployment.
 
+### [bosh-delete-all-deployments][bosh-delete-all-deployments-task-yaml]
+This deletes all BOSH deployments.
+
 ### [bosh-deploy][bosh-deploy-task-yaml]
 This performs a BOSH upload-stemcell and BOSH deployment.
 Optionally, operations files may be applied
@@ -171,6 +174,7 @@ instance groups.
 [bosh-deploy-task-yaml]: bosh-deploy/task.yml
 [bosh-deploy-with-created-release-task-yaml]: bosh-deploy-with-created-release/task.yml
 [bosh-delete-deployment-task-yaml]: bosh-delete-deployment/task.yml
+[bosh-delete-all-deployments-task-yaml]: bosh-delete-all-deployments/task.yml
 [bosh-upload-stemcells-task-yaml]: bosh-upload-stemcells/task.yml
 [bosh-upload-stemcell-from-cf-deployment-task-yaml]: bosh-upload-stemcell-from-cf-deployment/task.yml
 [cf-deployment-repo]: https://github.com/cloudfoundry/cf-deployment

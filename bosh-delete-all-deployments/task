@@ -15,7 +15,7 @@ function bosh_delete_all_deployments() {
   deployments=$(bosh deployments --json | jq -r '.Tables[].Rows[].name')
 
   for deployment in ${deployments}; do
-    if [ ! -z "${deployment}" ]; then
+    if [ -n "${deployment}" ]; then
       echo "Deleting deployment: ${deployment}"
       bosh \
         -n \

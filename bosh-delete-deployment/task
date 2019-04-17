@@ -40,7 +40,7 @@ function bosh_delete_deployment() {
 }
 
 function main() {
-#  setup_bosh_env_vars
+  setup_bosh_env_vars
   if [ "$DELETE_ALL_DEPLOYMENTS" = true ]; then
     bosh_delete_all_deployments
   else

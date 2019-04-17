@@ -10,11 +10,13 @@ function bosh_delete_all_deployments() {
 
     for deployment in ${deployments}; do
       if [ -n "${deployment}" ]; then
-        "$DEPLOYMENT_NAME" = "${deployment}"
-        echo "Deleting deployment: ${DEPLOYMENT_NAME}"
-        bosh_delete_deployment()
-      fi
-    done   
+        echo "Deleting deployment: ${deployment}"
+      	bosh \
+          -n \
+        	delete-deployment -d "${deployment}" \
+      		${force_flag}
+    	fi
+    done
 }
 
 function check_delete_deployment_params() {
@@ -39,7 +41,7 @@ function bosh_delete_deployment() {
 
 function main() {
   setup_bosh_env_vars
-  if [ "$DELETE_ALL_DEPLOYMENTS" = true ]; then
+  if [ "$DELETE_ALL_DEPLOYMENTS" ]; then
     bosh_delete_all_deployments
   else
     check_delete_deployment_params

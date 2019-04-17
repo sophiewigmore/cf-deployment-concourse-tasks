@@ -23,8 +23,8 @@ params:
 
   DELETE_ALL_DEPLOYMENTS: false
   # - Optional
-  # - When true, deletes ALL BOSh deployments
-  
+  # - When true, deletes ALL BOSH deployments
+
   DEPLOYMENT_NAME: cf
 
   IGNORE_ERRORS: false
